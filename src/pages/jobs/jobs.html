@@ -1,0 +1,20 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Jobs</ion-title>
+     </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-list>
+  <ion-item *ngFor="let item of joblist"  (click)='itm_click(item)'>
+    <h2>{{item.custName}}</h2>
+    <h3>{{item.Address1}}</h3>
+    <h3>{{item.Address2}}</h3>
+    <h3>{{item.City}}</h3>
+    <h3>{{item.County}}</h3>
+    <h3>{{item.jobno}}</h3>
+    <p>message...</p>
+  </ion-item>
+</ion-list>
+</ion-content>  

@@ -1,3 +1,4 @@
+import { JobsPage } from './../pages/jobs/jobs';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -22,7 +23,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Jobs', component: JobsPage }
     ];
 
   }
@@ -35,10 +36,18 @@ export class MyApp {
       this.splashScreen.hide();
     });
   }
-
+/*
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+*/
+  openPage(page,tag:string) {
+    // Reset the content nav to have just this page
+    // we wouldn't want the back button to show in this scenario
+    //this.nav.setRoot(page.component);
+    if (tag.toLowerCase()=='jobs')
+      this.nav.push(JobsPage);
   }
 }

@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DataService } from './../../services/data.service';
+import { AppService } from '../../services/app.service';
+import { SQLiteHelperService } from '../../services/sqlitehelper.service';
 import { JobdetPage } from '../jobdet/jobdet';
 
 @IonicPage()
 @Component({
   selector: 'page-jobs',
   templateUrl: 'jobs.html',
-  providers:[ DataService]
+  providers:[ DataService,AppService,SQLiteHelperService]
 })
 export class JobsPage {
   private joblist:Array<any>;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private datasvc:DataService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private datasvc:DataService,private appsvc:AppService,private sqlitehelperSvc:SQLiteHelperService) {
   }
 
   ionViewDidLoad() {

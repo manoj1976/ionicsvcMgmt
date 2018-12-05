@@ -1,0 +1,70 @@
+<!--
+  <ion-content class="background">
+	<ion-card>
+		<ion-card-header>
+			Login Form
+		</ion-card-header>
+		<ion-card-content>
+			<ion-list no-line>
+				<ion-item>
+					<ion-input type="text" placeholder="Username"></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-input type="password" placeholder="Password"></ion-input>
+				</ion-item>
+				<a>Forgot your login detail? <b>Get help signing in</b></a>
+				<button ion-button block outline color="light">Log in</button>
+				<p>OR</p>
+				<button ion-button block color="facebook">
+					<ion-icon name="logo-facebook"></ion-icon> Login with facebook
+				</button>
+			</ion-list>
+		</ion-card-content>
+	</ion-card>
+	<button class="bottom" ion-button clear full color="light">Don't have an account? Sign up</button>
+</ion-content>
+-->
+<ion-header>
+  
+    <ion-navbar>
+			<ion-title>Login</ion-title>
+			<ion-buttons end>
+				<button  ion-button icon-only end (click)="presentPopover($event)">
+					<ion-icon name="more"></ion-icon>
+					</button>
+				</ion-buttons>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content class="background">
+	<ion-card>
+		<!--<ion-card-header>
+			Login
+    </ion-card-header>-->
+    <ion-item></ion-item>
+		<ion-card-content>
+			<ion-list no-line>
+				<ion-item>
+					<ion-input type="text" placeholder="User Id" [(ngModel)]="varUser.userid" [disabled]="varUser.varDisable"></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-input type="password" placeholder="Password" [(ngModel)]="varUser.pwd" [disabled]="varUser.varDisable"></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label>Guest User</ion-label>
+					<ion-checkbox [(ngModel)]="varUser.guestlogin" [disabled]="varUser.varDisable" ></ion-checkbox>
+				  </ion-item>
+<div></div>
+<div></div>
+				<button ion-button round full color="facebook" (click)='btn_LoginClick()' [disabled]="varUser.varDisable">
+					 Login
+				</button>
+			</ion-list>
+		</ion-card-content>
+	</ion-card>
+	<ion-item no-line> 
+		<ion-label align='center'  color="danger">{{varUser.varInfo}}</ion-label>
+	</ion-item>
+</ion-content>

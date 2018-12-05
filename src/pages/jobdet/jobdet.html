@@ -13,10 +13,46 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item>
-    <ion-label>Start Time</ion-label>
-    <ion-badge item-end>Billable Time</ion-badge>
-  <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts"></ion-datetime>
-    
+  <ion-grid *ngFor="let item of jobdetlist">
+    <ion-row>
+      <ion-col>
+        <ion-item>
+        {{item.description}}
+      </ion-item>
+      </ion-col>
+      <ion-col>
+          <ion-item>
+        <ion-label color="primary">Billable</ion-label>
+        <ion-toggle color="primary" [(ngModel)]="item.taskbillable"></ion-toggle>
+      </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-badge  color="danger">Total Time
+          <ion-datetime  displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="item.totaltime"></ion-datetime>
+        </ion-badge>
+      </ion-col>
+      <ion-col>
+          <ion-badge float-right color="primary">Billable Time
+            <ion-datetime  displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="item.billabletime"></ion-datetime>
+          </ion-badge>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col>
+            <ion-item-divider>
+              {{item.detmsg}}
+            </ion-item-divider>
+          </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-item item-end>
+    <ion-textarea maxlength="250" placeholder="Comment"></ion-textarea>
   </ion-item>
+
+  <button ion-button full item-end color='secondary'>Post Time</button>
 </ion-content>
